@@ -50,7 +50,7 @@ jobs:
       - image: cimg/python:3.10.4
 
     steps:
-      -checkout
+      - checkout
       - attach_workspace:
           at: output.txt
       - run:
