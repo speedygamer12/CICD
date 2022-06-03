@@ -69,8 +69,7 @@ jobs:
     <<: *defaults 
     steps:
       - checkout
-      - run:
-          print_pipeline_id
+      - print_pipeline_id
 
   
 
