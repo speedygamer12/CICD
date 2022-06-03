@@ -50,7 +50,8 @@ jobs:
       - image: cimg/python:3.10.4
 
     steps:
-      - attach_to_workspace:
+      -checkout
+      - attach_workspace:
           at: /output.txt
       - run:
           echo "$output.txt
