@@ -26,7 +26,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "say world"
+          name: "say << YUSUF_VAR >>"
           command: "echo World!"
 
 # Invoke jobs via workflows
