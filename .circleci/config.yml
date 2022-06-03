@@ -52,7 +52,8 @@ jobs:
     steps:
       - attach_to_workspace:
           at: /output.txt
-
+      - run:
+          echo "$output.txt"
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -63,3 +64,5 @@ workflows:
       - print-world:
           requires:
             - say-hello
+      - save_hello_world_output
+      - print_output_file
