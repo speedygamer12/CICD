@@ -71,7 +71,20 @@ jobs:
       - checkout
       - print_pipeline_id
 
-  
+  fail_build:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: Run commands
+          command: |
+              echo "testing"
+              exit 1
+      - run:
+          name: Testing failure
+          command: |
+              echo "I failed"
+          when: on_fail
 
 workflows:
   say-hello-workflow:
@@ -86,3 +99,4 @@ workflows:
           requires:
             - save_hello_world_output
       - print_pipeline_id_from_command
+      - fail_build
