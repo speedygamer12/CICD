@@ -28,6 +28,31 @@ jobs:
       - run:
           name: "say $YUSUF_VAR "
           command: "echo World!"
+  
+  save_hello_world_output:
+
+    docker:
+      - image: cimg/python:3.10.4
+    
+    steps:
+      - checkout
+      - run:
+          name: "VAR "
+          command: echo " Hello World!" > output.txt
+
+      - persist_to_workspace:
+          root: /
+          paths: 
+            - output.txt
+
+  print_output_file:
+    docker:
+      - image: cimg/python:3.10.4
+
+    steps:
+      - attach_to_workspace:
+          at: /output.txt
+
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
