@@ -36,12 +36,14 @@ jobs:
     
     steps:
       - checkout
+      - run: mkdir -p tmp
       - run:
           name: "VAR "
-          command: echo " Hello World!" > output.txt
+          command: echo " Hello World!" > tmp/output.txt
+      
 
       - persist_to_workspace:
-          root: /
+          root: tmp
           paths: 
             - output.txt
 
@@ -52,7 +54,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: output.txt
+          at: /tmp/output.txt
       - run:
           echo "$output.txt"
 
