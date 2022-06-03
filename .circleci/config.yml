@@ -66,12 +66,11 @@ jobs:
           echo "$output.txt"
 
   print_pipeline_id_from_command:
-    docker:
-      - image: cimg/python:3.10.4
+    <<: *defaults 
     steps:
       - checkout
       - run:
-          - print_pipeline_id:
+          print_pipeline_id
 
   
 
