@@ -52,9 +52,9 @@ jobs:
     steps:
       -checkout
       - attach_workspace:
-          at: /output.txt
+          at: output.txt
       - run:
-          echo "$output.txt
+          echo "$output.txt"
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
